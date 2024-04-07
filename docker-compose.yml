@@ -2,16 +2,16 @@ services:
   app:
     build:
       context: ./
-    command: sh -c "npm install && npm run dev"
+    command: sh -c "npm run build && npm start"
     environment:
-      - PG_URL=postgres://postgres:postgres@localhost:5432/example
+      - PG_URL=postgres://postgres:postgres@postgres:5432/example
       - PG_USER=postgres
       - PG_PASSWORD=postgres
       - NODE_PORT=3000
     expose:
-      - 8080
+      - 3000
     ports:
-      - 3000:8080
+      - 3000:3000
     networks:
       - postgres
 networks:
