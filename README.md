@@ -58,6 +58,10 @@ This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the
 * In a root folder run following in order to generate database schema into src/zapatos folder
 ```./update_zapatos_model.sh```
 
+### Integration tests ###
+
+* See folder "integration_tests" for instructions
+
 ### Roadmap ###
 
 * add validation for input parameters and payload
