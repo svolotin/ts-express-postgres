@@ -26,6 +26,8 @@ This is a template for nodejs (Typescript) container service on top of postgres
 
 ```curl http://localhost:3000/user/```
 * lists rows in a database
+
+
 ```curl http://localhost:3000/user/<id>```
 * returns a single row by id
 
