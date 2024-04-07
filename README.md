@@ -23,6 +23,7 @@ This is a template for nodejs (Typescript) container service on top of postgres
 
 ```curl -X POST http://localhost:3000/user -d @payload.json --header "Content-Type: application/json"```
 * creates a new row into the database. modify payload.json in root folder to change the fields of the created row
+
 ```curl http://localhost:3000/user/```
 * lists rows in a database
 ```curl http://localhost:3000/user/<id>```
@@ -33,7 +34,9 @@ This is a template for nodejs (Typescript) container service on top of postgres
 in root folder:
 
 ```npm install```
+
 ```npm run build```
+
 ```npm start```
 
 There needs to be an .env file in the root folder, like following:
@@ -47,7 +50,7 @@ NODE_PORT=3000
 
 ### Zapatos ###
 
-This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the database. Since there are many reports that ORM type of approaches suffers of major performance issues with node, decided to try Zapatos.
+This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the database. Since there are many reports that ORM type of approaches suffers of major performance issues with node, decided to try Zapatos. Currently there is a generated zapatos schema in src/zapatos folder. But in case if schema in database is developed further or changing, typescript schema needs to be regenerated:
 
 * Make sure that local postgres container is running
 * In a root folder run following in order to generate database schema into src/zapatos folder
