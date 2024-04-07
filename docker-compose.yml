@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: ./
+    command: sh -c "npm install && npm run dev"
+    environment:
+      - PG_URL=postgres://postgres:postgres@localhost:5432/example
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - NODE_PORT=3000
+    expose:
+      - 8080
+    ports:
+      - 3000:8080
+    networks:
+      - postgres
+networks:
+  postgres:
+    name: ts-express
+    external: true
+      
