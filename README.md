@@ -60,3 +60,5 @@ This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the
 * add logger middleware for express
 * add github actions workflow for CI/CD
 * add openapi / swagger api doc generator
+* adjust error handling little bit for http 404 and 400 series in general (with auth middleware)
+* if codebase grows, separate routers and repositories into a separate modules
