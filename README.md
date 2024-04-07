@@ -66,8 +66,10 @@ This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the
 
 * add validation for input parameters and payload
 * add auth middleware for express to validate the jwt token using public keys fetched from IDP's jwks api
-* add logger middleware for express
+* add logger middleware for express and more severe logging
 * add github actions workflow for CI/CD
+* AWS ECS deployment as well as AWS API Gateway deployment with lambda authorizer on top of ECS container
 * add openapi / swagger api doc generator
 * adjust error handling little bit for http 404 and 400 series in general (with auth middleware)
 * if codebase grows, separate routers and repositories into a separate modules
+* Monitoring utility for performance, load and health monitoring.
