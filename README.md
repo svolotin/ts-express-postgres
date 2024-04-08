@@ -87,5 +87,5 @@ In reality mocha tests in this repository are integration tests
 * AWS ECS deployment as well as AWS API Gateway deployment with lambda authorizer on top of ECS container
 * add openapi / swagger api doc generator
 * adjust error handling little bit for http 404 and 400 series in general (with auth middleware)
-* if codebase grows, separate routers and repositories into a separate modules
+* ~~if codebase grows, separate routers and repositories into a separate modules~~ (done)
 * Monitoring utility for performance, load and health monitoring.
