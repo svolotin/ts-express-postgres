@@ -58,6 +58,22 @@ This template uses [Zapatos](https://jawj.github.io/zapatos/ ) for accessing the
 * In a root folder run following in order to generate database schema into src/zapatos folder
 ```./update_zapatos_model.sh```
 
+### Unit tests ###
+
+```npm test```
+
+In reality mocha tests in this repository are integration tests
+
+* local postgres needs to be runnin in order to pass tests
+* this is not a recommended way for unit testing. Tests depends of too large part of the codebase and will make harder to maintain the codebase.
+* supertest is used to run tests on routes
+
+[How to unit test routes]( https://stackoverflow.com/questions/9517880/how-does-one-unit-test-routes-with-express )
+
+[Running router as express mini app]( https://github.com/ladjs/supertest/issues/142 )
+
+
+
 ### Integration tests ###
 
 * See folder "integration_tests" for instructions

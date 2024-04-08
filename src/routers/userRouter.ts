@@ -3,12 +3,6 @@ import { createUser, getUserById, getUsers } from '../repository/user';
 
 const userRouter = express.Router();
 
-interface Payload {
-  first_name: string,
-  last_name: string,
-  email: string
-}
-
 userRouter
   .route("/")
   .get(async (req, res, next) => {
