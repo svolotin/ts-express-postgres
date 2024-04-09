@@ -23,6 +23,119 @@ declare module 'zapatos/schema' {
   /* --- tables --- */
 
   /**
+   * **transact**
+   * - Table in database
+   */
+  export namespace transact {
+    export type Table = 'transact';
+    export interface Selectable {
+      /**
+      * **transact.amount**
+      * - `int4` in database
+      * - Nullable, no default
+      */
+      amount: number | null;
+      /**
+      * **transact.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('transact_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **transact.user_id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      user_id: number;
+    }
+    export interface JSONSelectable {
+      /**
+      * **transact.amount**
+      * - `int4` in database
+      * - Nullable, no default
+      */
+      amount: number | null;
+      /**
+      * **transact.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('transact_id_seq'::regclass)`
+      */
+      id: number;
+      /**
+      * **transact.user_id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      user_id: number;
+    }
+    export interface Whereable {
+      /**
+      * **transact.amount**
+      * - `int4` in database
+      * - Nullable, no default
+      */
+      amount?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **transact.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('transact_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **transact.user_id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      user_id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **transact.amount**
+      * - `int4` in database
+      * - Nullable, no default
+      */
+      amount?: number | db.Parameter<number> | null | db.DefaultType | db.SQLFragment;
+      /**
+      * **transact.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('transact_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment;
+      /**
+      * **transact.user_id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      user_id: number | db.Parameter<number> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **transact.amount**
+      * - `int4` in database
+      * - Nullable, no default
+      */
+      amount?: number | db.Parameter<number> | null | db.DefaultType | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | null | db.DefaultType | db.SQLFragment>;
+      /**
+      * **transact.id**
+      * - `int4` in database
+      * - `NOT NULL`, default: `nextval('transact_id_seq'::regclass)`
+      */
+      id?: number | db.Parameter<number> | db.DefaultType | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.DefaultType | db.SQLFragment>;
+      /**
+      * **transact.user_id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      user_id?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+    }
+    export type UniqueIndex = never;
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **users**
    * - Table in database
    */
@@ -168,20 +281,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = users.Table;
-    export type Selectable = users.Selectable;
-    export type JSONSelectable = users.JSONSelectable;
-    export type Whereable = users.Whereable;
-    export type Insertable = users.Insertable;
-    export type Updatable = users.Updatable;
-    export type UniqueIndex = users.UniqueIndex;
-    export type Column = users.Column;
+    export type Table = transact.Table | users.Table;
+    export type Selectable = transact.Selectable | users.Selectable;
+    export type JSONSelectable = transact.JSONSelectable | users.JSONSelectable;
+    export type Whereable = transact.Whereable | users.Whereable;
+    export type Insertable = transact.Insertable | users.Insertable;
+    export type Updatable = transact.Updatable | users.Updatable;
+    export type UniqueIndex = transact.UniqueIndex | users.UniqueIndex;
+    export type Column = transact.Column | users.Column;
   
-    export type AllBaseTables = [users.Table];
+    export type AllBaseTables = [transact.Table, users.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [users.Table];
+    export type AllTablesAndViews = [transact.Table, users.Table];
   }
 
 
@@ -209,34 +322,42 @@ declare module 'zapatos/schema' {
   /* === lookups === */
 
   export type SelectableForTable<T extends Table> = {
+    "transact": transact.Selectable;
     "users": users.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
+    "transact": transact.JSONSelectable;
     "users": users.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
+    "transact": transact.Whereable;
     "users": users.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
+    "transact": transact.Insertable;
     "users": users.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
+    "transact": transact.Updatable;
     "users": users.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
+    "transact": transact.UniqueIndex;
     "users": users.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
+    "transact": transact.Column;
     "users": users.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
+    "transact": transact.SQL;
     "users": users.SQL;
   }[T];
 

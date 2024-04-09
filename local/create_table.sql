@@ -20,6 +20,12 @@ CREATE TABLE public.users (
     email TEXT UNIQUE
 );
 
+CREATE TABLE public.transact (
+    id serial NOT NULL,
+    user_id integer NOT NULL,
+    amount integer
+);
+
 ALTER TABLE public.users OWNER TO postgres;
 
 CREATE SEQUENCE public.users_user_id_seq
