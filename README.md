@@ -31,6 +31,10 @@ This is a template for nodejs (Typescript) container service on top of postgres
 ```curl http://localhost:3000/user/<id>```
 * returns a single row by id
 
+```curl -X POST http://localhost:3000/transaction -d @transaction.json --header "Content-Type: application/json"```
+* Makes transaction into user_id's account. Modify transaction.json for changing the user and transaction.
+
+
 ### Running in local nodejs server ###
 
 in root folder:
