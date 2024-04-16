@@ -1,6 +1,6 @@
 # README #
 
-This is a template for nodejs (Typescript) container service on top of postgres
+This is a template for nodejs (Typescript) container service on top of postgres. This is an example of a small backend app where express request/response drills all the way down to the repository. Therefore the code is not very well unit testable and this kind of architecture does not lead for well structured / decoupled code in bigger projects. For bigger projects recommending to decouple the routers from repository or study frameworks like  [NestJS](https://nestjs.com/ ) 
 
 ### Local setup and requirements ###
 
@@ -82,14 +82,3 @@ In reality mocha tests in this repository are integration tests
 
 * See folder "integration_tests" for instructions
 
-### Roadmap ###
-
-* add validation for input parameters and payload
-* add auth middleware for express to validate the jwt token using public keys fetched from IDP's jwks api
-* add logger middleware for express and more severe logging
-* add github actions workflow for CI/CD
-* AWS ECS deployment as well as AWS API Gateway deployment with lambda authorizer on top of ECS container
-* add openapi / swagger api doc generator
-* adjust error handling little bit for http 404 and 400 series in general (with auth middleware)
-* ~~if codebase grows, separate routers and repositories into a separate modules~~ (done)
-* Monitoring utility for performance, load and health monitoring.
